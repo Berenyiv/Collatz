@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <title>Collatz Számoló</title>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Collatz-algoritmus</h1>
-  <text ="left"
-    <p>A Collatz-sejtés egy máig megoldatlan probléma a matematikában. Több más néven is ismert, például Ulam-sejtés vagy 3n+1 probléma. A sejtés a nevét Lothar Collatzról kapta, aki 1937-ben fogalmazta meg azt.  </p> 
-  
-<img src="lotharcollatz.jpg" alt="Collatz-algoritmus" title="Collatz-algoritmus" class="collatzkep" width="50%">
-    <h2>A probléma a következő</h2>
-<p>Tetszőleges pozitív egész számból kiindulva képezzünk végtelen sorozatot úgy, hogy ha a sorozat utoljára kiszámított eleme páros, akkor a rákövetkező elem ennek fele lesz, különben viszont a háromszorosánál eggyel nagyobb szám.</p>
-  
-<h3>Az algoritmus működése</h3>
-<img src="collaxkép.png"
+    <h1>Collatz-algoritmus</h1>
 
-  
+    <p>A Collatz-sejtés egy máig megoldatlan probléma a matematikában. Több más néven is ismert, például Ulam-sejtés
+        vagy 3n+1 probléma. A sejtés a nevét Lothar Collatzról kapta, aki 1937-ben fogalmazta meg azt. </p>
+
+    <img src="lotharcollatz.jpg" alt="Collatz-algoritmus" title="Collatz-algoritmus" class="collatzkep" width="50%">
+    <h2>A probléma a következő</h2>
+    <p>Tetszőleges pozitív egész számból kiindulva képezzünk végtelen sorozatot úgy, hogy ha a sorozat utoljára
+        kiszámított eleme páros, akkor a rákövetkező elem ennek fele lesz, különben viszont a háromszorosánál eggyel
+        nagyobb szám.</p>
+
+    <h3>Az algoritmus működése</h3>
+    <img src="collaxkép.png">
+    <h4>A sejtés megfogalmazása </h4>
+    <p>Ha a szám páros, oszd el 2-vel.</p>
+    <p>Ha a szám páratlan, szorozd meg 3-mal, majd adj hozzá 1-et.</p>
+    <p>➡️ Bármely pozitív egész számból indulva végül eljutsz az 1-hez.</p>
+
+
+
     <div class="box">
         <h1>Collatz Kalkulátor</h1>
         <p>Írj be egy számot:</p>
@@ -27,51 +37,11 @@
         <button onclick="szamolas()">Számolj!</button>
 
         <div id="eredmeny">
-            </div>
+        </div>
     </div>
 
-    <script>
-        // Ez a rész végzi a számítást (JavaScript)
-        function szamolas() {
-            let n = parseInt(document.getElementById('szamInput').value);
-            let tartaly = document.getElementById('eredmeny');
-            
-            if (isNaN(n) || n < 1) {
-                tartaly.innerHTML = "Adj meg egy normális számot!";
-                return;
-            }
-
-            let sorozat = [];
-            let maxErtek = n;
-
-            // A számítási ciklus
-            while (n !== 1) {
-                sorozat.push(n);
-                if (n > maxErtek) maxErtek = n; // Megjegyezzük a legmagasabb számot
-
-                if (n % 2 === 0) {
-                    n = n / 2;
-                } else {
-                    n = (n * 3) + 1;
-                }
-            }
-            sorozat.push(1); // Az utolsó elem mindig 1
-
-            // Kiírás a képernyőre
-            tartaly.innerHTML = `
-                <p class="csucs">Legmagasabb elért érték: ${maxErtek}</p>
-                <p>Lépések száma: ${sorozat.length - 1}</p>
-                <p><strong>Útvonal:</strong> ${sorozat.join(" → ")}</p>
-            `;
-        }
-    </script>
+   <script src="script.js"></script>
 
 </body>
+
 </html>
-
-    
-
-    
-    
-
-<
