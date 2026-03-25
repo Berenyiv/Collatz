@@ -1,10 +1,71 @@
+
+
+    
+</body>
+</html>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Collatz-algoritmus</title>
-   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collatz-kalkulátor</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 20px; background: #f4f4f9; }
+        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { color: #333; text-align: center; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0056b3; }
+        #result { margin-top: 20px; max-height: 300px; overflow-y: auto; border-top: 1px solid #eee; padding-top: 10px; }
+        .step { font-size: 14px; color: #555; padding: 4px 0; border-bottom: 1px idotted #eee; }
+        .stats { font-weight: bold; color: #28a745; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Collatz-szekvencia</h2>
+    <p>Adj meg egy pozitív egész számot:</p>
+    <input type="number" id="numberInput" placeholder="Pl. 27" min="1">
+    <button onclick="calculateCollatz()">Számítás</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateCollatz() {
+        let n = parseInt(document.getElementById('numberInput').value);
+        const resultDiv = document.getElementById('result');
+        
+        if (isNaN(n) || n < 1) {
+            resultDiv.innerHTML = "<p style='color:red;'>Kérlek, adj meg egy 1-nél nagyobb számot!</p>";
+            return;
+        }
+
+        let steps = [];
+        let current = n;
+        steps.push(current);
+
+        // A Collatz-algoritmus magja
+        while (current !== 1) {
+            if (current % 2 === 0) {
+                current = current / 2;
+            } else {
+                current = (3 * current) + 1;
+            }
+            steps.push(current);
+        }
+
+        // Megjelenítés
+        let html = `<div class="stats">Lépések száma: ${steps.length - 1}</div>`;
+        steps.forEach((num, index) => {
+            html += `<div class="step"><strong>${index}. lépés:</strong> ${num}</div>`;
+        });
+        
+        resultDiv.innerHTML = html;
+    }
+    "width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -14,6 +75,7 @@
 <p>Tetszőleges pozitív egész számból kiindulva képezzünk végtelen sorozatot úgy, hogy ha a sorozat utoljára kiszámított eleme páros, akkor a rákövetkező elem ennek fele lesz, különben viszont a háromszorosánál eggyel nagyobb szám.</p>
   
 Az algoritmus letölthető innen: <a href="számologép.fprg">Collatz-algoritmus</a>
-    
+</script>
+
 </body>
 </html>
