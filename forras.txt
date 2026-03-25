@@ -1,0 +1,5 @@
+Collatz-algoritmus
+A Collatz-sejtés egy máig megoldatlan probléma a matematikában. Több más néven is ismert, például Ulam-sejtés vagy 3n+1 probléma. A sejtés a nevét Lothar Collatzról kapta, aki 1937-ben fogalmazta meg azt.
+>A probléma a következő
+Tetszőleges pozitív egész számból kiindulva képezzünk végtelen sorozatot úgy, hogy ha a sorozat utoljára kiszámított eleme páros, akkor a rákövetkező elem ennek fele lesz, különben viszont a háromszorosánál eggyel nagyobb szám.
+  
