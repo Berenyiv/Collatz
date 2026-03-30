@@ -5,6 +5,14 @@ body {
         background-color: #f4f4f4;
     }
 
+    img {
+  max-width: 100%;    /* Soha ne lógjon ki a keretből */
+  height: auto;       /* Tartsa meg az arányait */
+  display: block;
+  margin: 0 auto;     /* Középre igazítás */
+  width: 300px;       /* Vagy amekkora alapból szeretnéd, hogy legyen */
+}
+
     input, button {
         padding: 10px;
         font-size: 16px;
